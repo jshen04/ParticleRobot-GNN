@@ -122,7 +122,7 @@ class Simulator:
 
 
 class GraphSimulator(Simulator):
-    def __init__(self, num, start, goal, visualizer=Visualizer()):
+    def __init__(self, num, start, goal, visualizer=None):
         super().__init__(num, start, goal, visualizer)
 
     def get_label(self):
