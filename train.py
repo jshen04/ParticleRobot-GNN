@@ -21,7 +21,7 @@ net.to(device)
 net.train()
 
 episodesteps = 2500
-for epoch in range(10):
+for epoch in range(1000):
     episode_loss = 0
 
     simulator.setup()
@@ -39,7 +39,7 @@ for epoch in range(10):
 
     print("Episode: {}; Episode Loss: {:.4e}".format(epoch + 1, episode_loss))
 
-torch.save(net.state_dict(), "./models/gnn.pt")
+torch.save(net.state_dict(), "./models/gnn_v0.pt")
 
 # episodesteps = 2500
 # for epoch in range(10):
