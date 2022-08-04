@@ -1,0 +1,15 @@
+matplotlib~=3.4.2
+numpy~=1.19.5
+pandas~=1.2.5
+pygame~=2.0.1
+pymunk~=6.2.1
+scipy~=1.7.0
+Shapely~=1.7.1
+tensorboard~=2.5.0
+torch~=1.12.0
+torch-cluster~=1.6.0
+torch-geometric~=2.0.4
+torch-scatter~=2.0.9
+torch-sparse~=0.6.14
+torch-spline-conv~=1.2.1
+torchvision~=0.13.0
