@@ -244,7 +244,7 @@ class ParticleRobot:
         :return: position, velocity, and angle of self
         '''
         self.updateCOM()
-        return self.body.position[0] / 1000, self.body.position[1] / 1000, self.body.velocity[0], self.body.velocity[1], self.angle
+        return self.body.position[0] / 1000, self.body.position[1] / 1000, self.body.velocity[0] / 10, self.body.velocity[1] / 10, self.angle / (math.pi / 2)
 
     def createMagnet(self, otherBot):
         '''
