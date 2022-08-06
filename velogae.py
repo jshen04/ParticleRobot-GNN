@@ -33,7 +33,6 @@ for epoch in range(1000):
 
         out = net.encode(data.x, data.edge_index)
         loss = net.recon_loss(out, data.edge_index) + loss_fn(out, data.y[:, [2, 3]])
-        print(loss)
         loss.backward()
         optim.step()
         optim.zero_grad()
