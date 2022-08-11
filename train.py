@@ -1,11 +1,11 @@
 import torch
 import numpy as np
-from torch.utils.tensorboard import SummaryWriter
+# from torch.utils.tensorboard import SummaryWriter
 
 from sim import GraphSimulator
 from graph_nn import Net
 
-writer = SummaryWriter('runs/vanilla_gnn')
+# writer = SummaryWriter('runs/vanilla_gnn')
 
 numbots = 9
 
@@ -37,13 +37,13 @@ for epoch in range(2000):
         optim.step()
         optim.zero_grad()
         episode_loss = episode_loss + loss.item()
-        writer.add_scalar("Loss/train", loss, epoch)
+        # writer.add_scalar("Loss/train", loss, epoch)
 
     print("Episode: {}; Episode Loss: {:.4e}".format(epoch + 1, episode_loss))
 
 torch.save(net.state_dict(), "./models/gnn_v0.pt")
-writer.flush()
-writer.close()
+# writer.flush()
+# writer.close()
 
 # episodesteps = 2500
 # for epoch in range(10):

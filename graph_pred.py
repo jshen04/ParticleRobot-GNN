@@ -1,12 +1,12 @@
 import torch
 from torch_geometric.nn import GAE
 import numpy as np
-from torch.utils.tensorboard import SummaryWriter
+# from torch.utils.tensorboard import SummaryWriter
 
 from gae import GCNEncoder
 from sim import GraphSimulator
 
-writer = SummaryWriter('run/more_predictive_gae')
+# writer = SummaryWriter('run/more_predictive_gae')
 
 numbots = 9
 
@@ -38,10 +38,10 @@ for epoch in range(2000):
         optim.step()
         optim.zero_grad()
         episode_loss = episode_loss + loss.item()
-        writer.add_scalar("Loss/train", loss, epoch)
+        # writer.add_scalar("Loss/train", loss, epoch)
 
     print("Episode: {}; Episode Loss: {:.4e}".format(epoch + 1, episode_loss))
 
 torch.save(net.state_dict(), "./models/morepredgae_v0.pt")
-writer.flush()
-writer.close()
+# writer.flush()
+# writer.close()
