@@ -1,11 +1,12 @@
 import torch
-import torch_geometric
-from torch_geometric.nn import GCNConv, GAE
+from torch_geometric.nn import GAE
 import numpy as np
+from torch.utils.tensorboard import SummaryWriter
 
 from gae import GCNEncoder
 from sim import GraphSimulator
-from viz import Visualizer
+
+writer = SummaryWriter('run/advanced_gae')
 
 numbots = 9
 
@@ -22,7 +23,7 @@ net.to(device)
 net.train()
 
 episodesteps = 2500
-for epoch in range(1000):
+for epoch in range(2000):
     episode_loss = 0
 
     simulator.setup()
@@ -37,7 +38,10 @@ for epoch in range(1000):
         optim.step()
         optim.zero_grad()
         episode_loss = episode_loss + loss.item()
+        writer.add_scalar("Loss/train", loss, epoch)
 
     print("Episode: {}; Episode Loss: {:.4e}".format(epoch + 1, episode_loss))
 
-torch.save(net.state_dict(), "./models/gae_v0.pt")
+torch.save(net.state_dict(), "./models/velogae_v0.pt")
+writer.flush()
+writer.close()
