@@ -64,6 +64,8 @@ class Simulator:
         # 5. clear current magnets
         self.world.removeMagnets()
 
+        return obs
+
     def run_wave(self, timesteps):
         self.setup()
         for i in range(timesteps):
