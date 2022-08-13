@@ -22,7 +22,7 @@ net.to(device)
 net.train()
 
 episodesteps = 2500
-for epoch in range(10):
+for epoch in range(100):
     episodeloss = 0
     simulator.setup()
     for step in range(episodesteps):
