@@ -3,7 +3,7 @@ import numpy as np
 # from torch.utils.tensorboard import SummaryWriter
 
 from sim import Simulator
-from imitation_learning import ImitationNet
+from vanilla_imitation import ImitationNet
 
 # writer = SummaryWriter('runs/vanilla_gnn')
 
