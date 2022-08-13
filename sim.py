@@ -50,6 +50,7 @@ class Simulator:
 
         # 1. get observation
         obs = self.superagent.observeSelf()
+        obs = torch.tensor(np.hstack((obs, np.array(action).reshape(-1, 1))), dtype=torch.float)
 
         # 2. particles react/simulate magnetic attraction
         self.world.addMagnets()

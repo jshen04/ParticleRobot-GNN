@@ -29,7 +29,7 @@ for epoch in range(100):
         totalSteps, actions = simulator.wavePolicy()
         for j in range(totalSteps):
             obs = simulator.step(actions[j])
-            out = net(torch.tensor(obs, dtype=torch.float))
+            out = net(obs)
 
             target = []
             for a in actions[j]:
