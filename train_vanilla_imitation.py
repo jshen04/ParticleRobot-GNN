@@ -29,7 +29,7 @@ for epoch in range(100):
         totalSteps, actions = simulator.wavePolicy()
         for j in range(totalSteps):
             obs = simulator.step(actions[j])
-            out = net(obs)
+            out = net(torch.tensor(obs, dtype=torch.float))
 
             target = []
             for a in actions[j]:
@@ -38,7 +38,7 @@ for epoch in range(100):
                 else:
                     target.append([0, 1])
 
-            loss = loss_fn(torch.tensor(out, dtype=torch.float), torch.tensor(target, dtype=torch.float))
+            loss = loss_fn(out, torch.tensor(target, dtype=torch.float))
             loss.backward()
             optim.step()
             optim.zero_grad()
