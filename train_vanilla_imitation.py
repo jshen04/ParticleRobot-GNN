@@ -38,7 +38,7 @@ for epoch in range(100):
                 else:
                     target.append([0, 1])
 
-            loss = loss_fn(out, torch.tensor(target, dtype=torch.float))
+            loss = loss_fn(torch.tensor(out, dtype=torch.float), torch.tensor(target, dtype=torch.float))
             loss.backward()
             optim.step()
             optim.zero_grad()
