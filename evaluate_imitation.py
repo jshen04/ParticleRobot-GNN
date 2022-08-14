@@ -15,7 +15,7 @@ for step in range(episodesteps):
     totalSteps, actions = simulator.wavePolicy()
     for j in range(totalSteps):
         data = simulator.step(actions[j])
-        out = net(data)
+        out = net(torch.tensor(data, dtype=torch.float))
 
         out = torch.argmax(out, dim=1)
         print("Truth: ", actions[j])
