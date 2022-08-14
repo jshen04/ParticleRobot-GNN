@@ -10,7 +10,7 @@ from vanilla_imitation import ImitationNet
 numbots = 9
 
 simulator = Simulator(num=numbots, start=(300, 300), goal=(0, 0), visualizer=None)
-net = ImitationNet(features=6)
+net = ImitationNet(features=5)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(device)
