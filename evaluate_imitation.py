@@ -1,11 +1,11 @@
 import torch
 import numpy as np
 
-from sim import GraphSimulator
+from sim import Simulator
 from vanilla_imitation import ImitationNet
 
 numbots = 9
-simulator = GraphSimulator(num=numbots, start=(300, 300), goal=(0, 0), visualizer=None)
+simulator = Simulator(num=numbots, start=(300, 300), goal=(0, 0), visualizer=None)
 
 net = ImitationNet(features=6)
 net.load_state_dict(torch.load("./models/imitation_v0.pt"))
