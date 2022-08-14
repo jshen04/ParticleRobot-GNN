@@ -65,7 +65,7 @@ class Simulator:
         # 5. clear current magnets
         self.world.removeMagnets()
 
-        return obs
+        return torch.tensor(obs, dtype=torch.float)
 
     def run_wave(self, timesteps):
         self.setup()
