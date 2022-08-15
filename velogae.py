@@ -42,6 +42,6 @@ for epoch in range(2000):
 
     print("Episode: {}; Episode Loss: {:.4e}".format(epoch + 1, episode_loss))
 
-torch.save(net.state_dict(), "./models/velogae_v0.pt")
+torch.save(net.state_dict(), "saved_models/velogae_v0.pt")
 # writer.flush()
 # writer.close()

@@ -71,4 +71,4 @@ for epoch in range(100):
 
         print("Episode: {}; Test Accuracy: {:.4e}".format(epoch, correct / total))
 
-torch.save(net.state_dict(), "./models/imitation_v0.pt")
+torch.save(net.state_dict(), "saved_models/imitation_v0.pt")

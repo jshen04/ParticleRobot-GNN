@@ -41,7 +41,7 @@ for epoch in range(2000):
 
     print("Episode: {}; Episode Loss: {:.4e}".format(epoch + 1, episode_loss))
 
-torch.save(net.state_dict(), "./models/gnn_v0.pt")
+torch.save(net.state_dict(), "saved_models/gnn_v0.pt")
 # writer.flush()
 # writer.close()
 
@@ -66,4 +66,4 @@ torch.save(net.state_dict(), "./models/gnn_v0.pt")
 #
 #     print("Episode: {}; Mean Step Loss: {:.4e}".format(epoch, episodeloss / episodesteps))
 #
-# torch.save(net.state_dict(), "./models/gnn_test.pt")
+# torch.save(net.state_dict(), "./saved_models/gnn_test.pt")

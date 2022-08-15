@@ -1,6 +1,5 @@
 import numpy as np
 import pymunk
-import pygame
 import math
 from statistics import mean
 

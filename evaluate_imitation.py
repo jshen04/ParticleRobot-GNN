@@ -8,7 +8,7 @@ numbots = 9
 simulator = Simulator(num=numbots, start=(300, 300), goal=(0, 0), visualizer=None)
 
 net = ImitationNet(features=6)
-net.load_state_dict(torch.load("./models/imitation_v0.pt"))
+net.load_state_dict(torch.load("./saved_models/imitation_v0.pt"))
 
 episodesteps = 2500
 for step in range(episodesteps):
