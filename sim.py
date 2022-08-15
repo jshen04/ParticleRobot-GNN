@@ -137,7 +137,7 @@ class GraphSimulator(Simulator):
             labels.append([particle.body.position[0] / 1000, particle.body.position[1] / 1000, particle.body.velocity[0] / 10, particle.body.velocity[1] / 10])
         return torch.tensor(labels, dtype=torch.float)
 
-    def step(self, action):
+    def step(self, action, append_action=False):
         '''
         Take one step
         1. get observations
@@ -172,7 +172,10 @@ class GraphSimulator(Simulator):
         self.superagent.actionAll(action)
 
         # combine action with current state
-        node_features = torch.tensor(np.hstack((first_obs, np.array(action).reshape(-1, 1))), dtype=torch.float)
+        if append_action:
+            node_features = torch.tensor(np.hstack((first_obs, np.array(action).reshape(-1, 1))), dtype=torch.float)
+        else:
+            node_features = torch.tensor(first_obs, dtype=torch.float)
 
         # 4. simulate
         for i in range(self.world.pymunk_steps_per_frame):
