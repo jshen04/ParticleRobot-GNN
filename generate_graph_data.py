@@ -7,9 +7,10 @@ import os.path as osp
 from sim import GraphSimulator
 
 class ParticleRobotDataset(Dataset):
-    def __init__(self, root, transform=None, pre_transform=None):
-        self.episodes = 2000
+    def __init__(self, root, transform=None, pre_transform=None, start_idx=0):
+        self.episodes = 1000
         self.episodelength = 5000
+        self.start_idx = start_idx
         super(ParticleRobotDataset, self).__init__(root, transform, pre_transform)
 
     @property
@@ -18,7 +19,7 @@ class ParticleRobotDataset(Dataset):
 
     @property
     def processed_file_names(self):
-        return f'data_{self.episodes*self.episodelength-1}.pt'
+        return f'data_{self.episodes*self.episodelength-1+self.start_idx}.pt'
 
     def download(self):
         pass
@@ -34,9 +35,8 @@ class ParticleRobotDataset(Dataset):
                 action = np.random.randint(2, size=numbots)
                 data = simulator.step(action, append_action=True)
 
-                torch.save(data, osp.join(self.processed_dir, f'data_{idx}.pt'))
+                torch.save(data, osp.join(self.processed_dir, f'data_{idx+self.start_idx}'))
                 idx += 1
-                print(idx)
 
     def len(self):
         return len(self.processed_file_names)
